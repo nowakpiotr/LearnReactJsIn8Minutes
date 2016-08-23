@@ -78,13 +78,23 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+	    _this.state = { counter: 10 };
+	    _this.onUserClick = _this.onUserClick.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'onUserClick',
+	    value: function onUserClick() {
+	      var counterValue = this.state.counter + 1;
+	      this.setState({ counter: counterValue });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -96,7 +106,7 @@
 	          ' Hello React!'
 	        ),
 	        _react2.default.createElement(_AwesomeComponent2.default, null),
-	        _react2.default.createElement(_ButtonApp2.default, { world: this.props.world })
+	        _react2.default.createElement(_ButtonApp2.default, { world: this.props.world, counter: this.state.counter, onUserClick: this.onUserClick })
 	      );
 	    }
 	  }]);
@@ -22107,6 +22117,14 @@
 	          "Click the button!"
 	        ),
 	        _react2.default.createElement("input", { type: "submit", value: this.props.world, onClick: this.handleClick }),
+	        _react2.default.createElement("input", { type: "button", onClick: this.props.onUserClick, value: "On User Click" }),
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          "You have pressed the button ",
+	          this.props.counter,
+	          " times!"
+	        ),
 	        _react2.default.createElement(
 	          "p",
 	          null,
