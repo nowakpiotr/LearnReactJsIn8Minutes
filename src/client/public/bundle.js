@@ -22079,13 +22079,40 @@
 	  function ButtonApp(props) {
 	    _classCallCheck(this, ButtonApp);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonApp).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonApp).call(this, props));
+	
+	    _this.state = { active: true };
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(ButtonApp, [{
+	    key: "handleClick",
+	    value: function handleClick() {
+	      var isActive = !this.state.active;
+	      this.setState({ active: isActive });
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
-	      return _react2.default.createElement("input", { type: "submit", value: this.props.world });
+	
+	      var buttonSwitch = this.state.active ? "On" : "Off";
+	
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "Click the button!"
+	        ),
+	        _react2.default.createElement("input", { type: "submit", value: this.props.world, onClick: this.handleClick }),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          buttonSwitch
+	        )
+	      );
 	    }
 	  }]);
 	
