@@ -4,7 +4,9 @@
   "description": "https://medium.com/learning-new-stuff/learn-react-js-in-7-min-92a1ef023003#.fal8oqopl",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack -d --watch",
+    "build" : "webpack -p"
   },
   "repository": {
     "type": "git",
