@@ -73,6 +73,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var BUTTONTEXT = "Click the button";
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -94,7 +96,7 @@
 	          ' Hello React!'
 	        ),
 	        _react2.default.createElement(_AwesomeComponent2.default, null),
-	        _react2.default.createElement(_ButtonApp2.default, null)
+	        _react2.default.createElement(_ButtonApp2.default, { world: this.props.world })
 	      );
 	    }
 	  }]);
@@ -102,7 +104,7 @@
 	  return App;
 	}(_react2.default.Component);
 	
-	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(App, { world: BUTTONTEXT }), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -22074,16 +22076,16 @@
 	var ButtonApp = function (_React$Component) {
 	  _inherits(ButtonApp, _React$Component);
 	
-	  function ButtonApp() {
+	  function ButtonApp(props) {
 	    _classCallCheck(this, ButtonApp);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonApp).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonApp).call(this, props));
 	  }
 	
 	  _createClass(ButtonApp, [{
 	    key: "render",
 	    value: function render() {
-	      return _react2.default.createElement("input", { type: "submit" });
+	      return _react2.default.createElement("input", { type: "submit", value: this.props.world });
 	    }
 	  }]);
 	
