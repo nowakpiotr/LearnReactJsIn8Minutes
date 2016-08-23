@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class ButtonApp extends React.Component {
 
@@ -12,7 +13,11 @@ class ButtonApp extends React.Component {
   {
     let isActive = !this.state.active;
     this.setState({ active: isActive });
+    ReactDOM.findDOMNode(this.refs.textField).focus();
+    console.log('focus');
   }
+
+
 
   render() {
 
@@ -21,6 +26,7 @@ class ButtonApp extends React.Component {
     return (
     <div>
         <p>Click the button!</p>
+      <input type="text" ref="textField" value="A" />
         <input type="submit" value={this.props.world} onClick={this.handleClick} />
         <p>{buttonSwitch}</p>
     </div>
