@@ -83,7 +83,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 	
-	    _this.state = { counter: 10 };
+	    _this.state = { counter: 10, todos: ["get food", "drive home", "eat food", "sleep"] };
 	    _this.onUserClick = _this.onUserClick.bind(_this);
 	    return _this;
 	  }
@@ -97,6 +97,14 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var todos = this.state.todos.map(function (todo, index) {
+	        return _react2.default.createElement(
+	          'li',
+	          { key: index },
+	          todo
+	        );
+	      });
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -106,7 +114,12 @@
 	          ' Hello React!'
 	        ),
 	        _react2.default.createElement(_AwesomeComponent2.default, null),
-	        _react2.default.createElement(_ButtonApp2.default, { world: this.props.world, counter: this.state.counter, onUserClick: this.onUserClick })
+	        _react2.default.createElement(_ButtonApp2.default, { world: this.props.world, counter: this.state.counter, onUserClick: this.onUserClick }),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          todos
+	        )
 	      );
 	    }
 	  }]);
